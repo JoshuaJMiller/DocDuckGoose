@@ -1,0 +1,30 @@
+# Build output
+bin/
+obj/
+
+# VS and Rider
+.vscode/
+.vs/
+.idea/
+
+# User-specific
+*.user
+*.suo
+
+# ASP.NET secrets (local config)
+appsettings.Development.json
+appsettings.*.json
+
+# Docker
+**/.dockerignore
+docker-compose.override.yml
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+
+# Logs
+*.log
