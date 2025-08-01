@@ -20,9 +20,9 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform Init
-        working-directory: ./terraform/tier0
+        working-directory: ./infrastructure/terraform/azure/tier0
         run: terraform init
 
       - name: Terraform Apply
-        working-directory: ./terraform/tier0
+        working-directory: ./infrastructure/terraform/azure/tier0
         run: terraform apply -auto-approve
