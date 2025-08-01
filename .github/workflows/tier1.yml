@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t docduckgooseacr.azurecr.io/docduckgoose-api:latest ./DocDuckGoose.Api
+          docker build -t docduckgooseacr.azurecr.io/docduckgoose-api:latest ./DocDuckGoose/sln/DocDuckGoose/DocDuckGoose.Api
 
       - name: Push Docker image to ACR
         run: |
