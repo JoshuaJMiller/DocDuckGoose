@@ -20,6 +20,20 @@ jobs:
         with:
           creds: ${{ env.AZURE_CREDENTIALS }}
 
+      - name: Log in to Azure Container Registry
+        run: |
+          echo $ACR_ADMIN_PASSWORD | docker login docduckgooseacr.azurecr.io --username docduckgooseacr --password-stdin
+        env:
+          ACR_ADMIN_PASSWORD: ${{ secrets.ACR_ADMIN_PASSWORD }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t docduckgooseacr.azurecr.io/docduckgoose-api:latest ./DocDuckGoose.Api
+
+      - name: Push Docker image to ACR
+        run: |
+          docker push docduckgooseacr.azurecr.io/docduckgoose-api:latest
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
