@@ -13,4 +13,5 @@ variable "location" {
 variable "acr_name" {
   type        = string
   description = "Name of Azure Container Registry"
+  default = "docduckgooseacr"
 }
