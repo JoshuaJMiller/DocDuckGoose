@@ -24,11 +24,11 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform Init
-        working-directory: ./terraform/tier1
+        working-directory: ./infrastructure/terraform/azure/tier1
         run: terraform init
 
       - name: Terraform Apply
-        working-directory: ./terraform/tier1
+        working-directory: ./infrastructure/terraform/azure/tier1
         run: |
           terraform apply -auto-approve \
             -var="acr_admin_password=${{ env.ACR_ADMIN_PASSWORD }}" \
