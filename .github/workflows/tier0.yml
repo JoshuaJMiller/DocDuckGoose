@@ -1,0 +1,28 @@
+name: Tier 0 - Foundation Infra
+
+on:
+  workflow_dispatch: # manual trigger
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        working-directory: ./terraform/tier0
+        run: terraform init
+
+      - name: Terraform Apply
+        working-directory: ./terraform/tier0
+        run: terraform apply -auto-approve

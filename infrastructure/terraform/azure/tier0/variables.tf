@@ -9,3 +9,8 @@ variable "location" {
   description = "Azure region to deploy resources into"
   default     = "eastus"
 }
+
+variable "acr_name" {
+  type        = string
+  description = "Name of Azure Container Registry"
+}
